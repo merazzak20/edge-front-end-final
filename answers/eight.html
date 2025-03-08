@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of 10 Books</title>
+</head>
+<body>
+    <nav>
+        <a href="one.html">Problem 1</a> |
+        <!-- <a href="two.html">Problem 2</a> | -->
+        <a href="three.html">Problem 3</a> |
+        <a href="four.html">Problem 4</a> |
+        <a href="five.html">Problem 5</a> |
+        <a href="six.html">Problem 6</a> |
+        <a href="seven.html">Problem 7</a> |
+        <a href="eight.html">Problem 8</a> |
+        <a href="nine.html">Problem 9</a>
+    </nav> 
+    <br><br>
+    <h1>Problem 8</h1><br>
+    
+    <input type="text" id="bookSearch" placeholder="Enter book title to search">
+    <button onclick="searchBook()">Search</button>
+    <br><br>
+
+    <h1>List of 10 Books</h1>
+    <ol id="bookList">
+        <li>To Kill a Mockingbird by Harper Lee</li>
+        <li>1984 by George Orwell</li>
+        <li>Pride and Prejudice by Jane Austen</li>
+        <li>The Great Gatsby by F. Scott Fitzgerald</li>
+        <li>Moby-Dick by Herman Melville</li>
+        <li>War and Peace by Leo Tolstoy</li>
+        <li>The Catcher in the Rye by J.D. Salinger</li>
+        <li>The Lord of the Rings by J.R.R. Tolkien</li>
+        <li>Ulysses by James Joyce</li>
+        <li>Jane Eyre by Charlotte Brontë</li>
+    </ol>
+
+    <script>
+        function searchBook() {
+            // Get the search term and the list of books
+            let searchTerm = document.getElementById("bookSearch").value.toLowerCase();
+            let books = document.querySelectorAll("#bookList li");
+
+            // Flag to track if the book is found
+            let found = false;
+
+            // Loop through the books list and check if any book matches the search term
+            books.forEach(book => {
+                if (book.textContent.toLowerCase().includes(searchTerm)) {
+                    alert("Book found: " + book.textContent);
+                    found = true;
+                }
+            });
+
+            // If no book is found
+            if (!found && searchTerm !== "") {
+                alert("Book not found");
+            }
+        }
+    </script>
+</body>
+</html>
